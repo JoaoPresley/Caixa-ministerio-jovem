@@ -26,4 +26,18 @@ public class Produto {
     public int get_quatidade(){
         return  this.quantidade;
     }
+
+    //Setters
+    public void set_nome(String nome){
+        this.nome = nome;
+    }
+    public void set_valor(double valor){
+        this.valor = valor;
+    }
+    public void add_quantidade(int n){
+        this.quantidade += n;
+    }
+    public void sub_quantidade(int n){
+        this.quantidade -= n;
+    }
 }
