@@ -8,12 +8,11 @@ public class Cliente {
         this.nome = nome;
         this.numero = numero;
     }
-    //Setters
 
+    //Setters
     /***
      *Aumenta o valor da divida
      * @param valor -> divida que será aumentada
-
      */
     public void add_divida(double valor){
         this.divida = this.divida + valor;
@@ -24,6 +23,12 @@ public class Cliente {
      */
     public void sub_divida(double valor){
         this.divida = this.divida - valor;
+    }
+    public void set_nome(String nome){
+        this.nome = nome;
+    }
+    public void set_numero(String numero){
+        this.numero = numero;
     }
 
     //Getters
