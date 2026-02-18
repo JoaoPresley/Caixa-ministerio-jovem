@@ -31,8 +31,10 @@ public class Produto {
 
         System.out.print("Digite o valor do produto (0 caso não tenha): ");
         double valor = sc.nextDouble();
+        sc.nextLine();//limpa buffer
         System.out.print("Digite a quantidade do produto (0 caso não tenha): ");
         int quantidade = sc.nextInt();
+        sc.nextLine();//limpa buffer
 
         Produto p = new Produto(nome, valor, quantidade);
         return p;
