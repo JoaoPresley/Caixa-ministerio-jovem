@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Cliente {
     private String nome;
     private double divida;
@@ -7,6 +10,31 @@ public class Cliente {
         this.divida = 0;
         this.nome = nome;
         this.numero = numero;
+    }
+
+    public static Cliente cadastrar(ArrayList <Cliente> lista){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Digite o nome do cliente: ");
+        String nome = sc.nextLine();
+        for(Cliente x: lista){
+            if (x.get_nome() == nome){
+                System.out.println("Nome de cliente já existente.");
+                return null;
+            }
+        }
+        System.out.println("Digite o numero do cliente: ");
+        String numero = sc.nextLine();
+        for(Cliente x: lista){
+            if (x.get_numero() == numero){
+                System.out.println("Numero de cliente já existente.");
+                return null;
+            }
+        }
+
+
+        Cliente c = new Cliente(nome, numero);
+        return c;
     }
 
     //Setters
