@@ -12,6 +12,11 @@ public class Cliente {
         this.numero = numero;
     }
 
+    /***
+     * Método da classe para cadastrar qualquer cliente
+     * @param lista -> Lista de clientes já cadastrados (Sem null)
+     * @return Cliente
+     */
     public static Cliente cadastrar(ArrayList <Cliente> lista){
         Scanner sc = new Scanner(System.in);
 
@@ -37,6 +42,54 @@ public class Cliente {
         return c;
     }
 
+    public static Cliente consultar(ArrayList <Cliente> lista ){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("------- Consulta de clientes -------");
+        System.out.println("Digite o nome do cliente (digite um nome inexistente para voltar): ");
+        String nome = sc.nextLine();
+
+        for(Cliente c: lista){
+            if(c.get_nome().equalsIgnoreCase(nome)){
+                return c;
+            }
+        }
+        System.out.println("!!Nome não encontrado!!");
+        return null;
+    }
+
+    public static void showORedit (Cliente c){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("------ Informações do "+c.get_nome()+" ------");
+        System.out.println("Dívida: " + c.get_divida());
+        System.out.println("Numero: " + c.get_numero());
+        System.out.println("------------------------------");
+        System.out.println("1 - Aumentar divida");
+        System.out.println("2 - Diminuir divida");
+        System.out.println("3 - Alterar numero");
+        System.out.println("4 - Voltar");
+        System.out.println("Digite opção escolhida: ");
+        int op = sc.nextInt();
+        sc.nextLine();
+
+        switch (op){
+            case 1->{
+                //Aumentar divida
+            }
+            case 2->{
+                //Diminuir divida
+            }
+            case 3->{
+                //Alterar numero
+            }
+            case 4->{
+                //voltar
+                return;
+            }
+        }
+
+    }
     //Setters
     /***
      *Aumenta o valor da divida

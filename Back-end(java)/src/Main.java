@@ -22,6 +22,9 @@ public class Main {
                         Lista_clientes.add(c);
                     }
                 }
+                case 4->{
+                    Cliente.showORedit(Cliente.consultar(Lista_clientes));
+                }
                 case 10-> {
                     return;
                 }
@@ -34,7 +37,7 @@ public class Main {
         var opcoes = List.of(1, 2, 3, 4, 10);
 
         do{
-            System.out.println("Escolha uma opção:");
+            System.out.println("---------- Menu Inicial ----------");
             System.out.print("""
                     ----------------------------------------
                     1 - Cadastrar produto
