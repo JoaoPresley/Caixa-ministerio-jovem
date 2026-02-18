@@ -5,11 +5,26 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ArrayList <Produto> Lista_produtos = new ArrayList<Produto>();
-        int op = menu_inicial();
+        ArrayList <Cliente> Lista_clientes = new ArrayList<Cliente>();
+        while (true){
+            int op = menu_inicial();
 
-        switch (op){
-            case 1 -> {
-               Lista_produtos.add(Produto.cadastrar(Lista_produtos));
+            switch (op){
+                case 1 -> {
+                    Produto p = Produto.cadastrar(Lista_produtos);
+                    if (p != null){
+                        Lista_produtos.add(p);
+                    }
+                }
+                case 2-> {
+                    Cliente c = Cliente.cadastrar(Lista_clientes);
+                    if (c != null) {
+                        Lista_clientes.add(c);
+                    }
+                }
+                case 10-> {
+                    return;
+                }
             }
         }
     }
