@@ -40,6 +40,72 @@ public class Produto {
         return p;
     }
 
+    public static Produto consultar(ArrayList <Produto> lista){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("------- Consulta de produtos -------");
+        System.out.print("Digite o nome do produto: ");
+        String nome = sc.nextLine();
+
+        for(Produto p: lista){
+            if(p.get_nome().equalsIgnoreCase(nome)){
+                return p;
+            }
+        }
+        System.out.println("!!Nome não encontrado!!");
+        return null;
+    }
+
+    public static void showORedit (Produto p){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("------ Informações do "+p.get_nome()+" ------");
+        System.out.println("Quantidade: " + p.get_quatidade());
+        System.out.println("Preço: " + p.get_valor());
+        System.out.println("------------------------------");
+        System.out.println("1 - Aumentar quantidade");
+        System.out.println("2 - Diminuir quantidade");
+        System.out.println("3 - Alterar valor");
+        System.out.println("4 - Voltar");
+        System.out.print("Digite opção escolhida: ");
+        int op = sc.nextInt();
+        sc.nextLine();
+
+        switch (op) {
+            case 1 -> {
+                //Aumentar quantidade
+                System.out.print("Digite a quantidade a aumentar: ");
+                int aumento = sc.nextInt();
+                sc.nextLine();
+
+                p.add_quantidade(aumento);
+            }
+            case 2 -> {
+                //Diminuir quantidade
+                System.out.print("Digite a quantidade a diminuir: ");
+                int diminui = sc.nextInt();
+                sc.nextLine();
+
+                p.sub_quantidade(diminui);
+            }
+            case 3 -> {
+                //Alterar valor
+                System.out.print("Novo valor: ");
+                p.set_valor(sc.nextDouble());
+                sc.nextLine();
+            }
+            case 4 -> {
+                //voltar
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+                return;
+            }
+        }
+        //Recursiva da edição de cliente
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+        Produto.showORedit(p);
+    }
     //getters
     public String get_nome(){
         return this.nome;

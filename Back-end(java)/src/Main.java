@@ -24,6 +24,13 @@ public class Main {
                         Lista_clientes.add(c);
                     }
                 }
+                case 3-> {
+                    //Acessar Produto
+                    Produto p = Produto.consultar(Lista_produtos);
+                    if (p != null){
+                        Produto.showORedit(p);
+                    }
+                }
                 case 4-> {
                     //Acessar Cliente
                     Cliente c = Cliente.consultar(Lista_clientes);
