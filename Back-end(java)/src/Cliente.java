@@ -56,7 +56,7 @@ public class Cliente {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("------- Consulta de clientes -------");
-        System.out.println("Digite o nome do cliente (digite um nome inexistente para voltar): ");
+        System.out.print("Digite o nome do cliente: ");
         String nome = sc.nextLine();
 
         for(Cliente c: lista){

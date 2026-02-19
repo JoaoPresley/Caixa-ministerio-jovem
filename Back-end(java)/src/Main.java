@@ -11,19 +11,25 @@ public class Main {
 
             switch (op){
                 case 1 -> {
+                    //Cadastrar Produto
                     Produto p = Produto.cadastrar(Lista_produtos);
                     if (p != null){
                         Lista_produtos.add(p);
                     }
                 }
                 case 2-> {
+                    //Cadastrar Cliente
                     Cliente c = Cliente.cadastrar(Lista_clientes);
                     if (c != null) {
                         Lista_clientes.add(c);
                     }
                 }
-                case 4->{
-                    Cliente.showORedit(Cliente.consultar(Lista_clientes));
+                case 4-> {
+                    //Acessar Cliente
+                    Cliente c = Cliente.consultar(Lista_clientes);
+                    if (c != null) {
+                        Cliente.showORedit(c);
+                    }
                 }
                 case 10-> {
                     return;
