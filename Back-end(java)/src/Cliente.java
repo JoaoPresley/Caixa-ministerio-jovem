@@ -20,7 +20,7 @@ public class Cliente {
     public static Cliente cadastrar(ArrayList <Cliente> lista){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Digite o nome do cliente: ");
+        System.out.print("Digite o nome do cliente: ");
         String nome = sc.nextLine();
         for(Cliente x: lista){
             if (x.get_nome() == nome){
@@ -28,7 +28,7 @@ public class Cliente {
                 return null;
             }
         }
-        System.out.println("Digite o numero do cliente: ");
+        System.out.print("Digite o numero do cliente: ");
         String numero = sc.nextLine();
         for(Cliente x: lista){
             if (x.get_numero() == numero){
