@@ -69,7 +69,7 @@ public class Cliente {
         System.out.println("2 - Debitar divida");
         System.out.println("3 - Alterar numero");
         System.out.println("4 - Voltar");
-        System.out.println("Digite opção escolhida: ");
+        System.out.print("Digite opção escolhida: ");
         int op = sc.nextInt();
         sc.nextLine();
 
@@ -97,9 +97,15 @@ public class Cliente {
             }
             case 4 -> {
                 //voltar
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
                 return;
             }
         }
+        //Recursiva da edição de cliente
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+        Cliente.showORedit(c);
     }
     //Setters
     /***
