@@ -2,10 +2,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Cliente {
+    //Atributos do cliente
     private String nome;
     private double divida;
     private String numero;
 
+    //Builder
     public Cliente(String nome, String numero) {
         this.divida = 0;
         this.nome = nome;
@@ -42,6 +44,14 @@ public class Cliente {
         return c;
     }
 
+    /***
+     * Método da classe para consultar clientes de uma lista.
+     * Utiliza-se o nome do cliente para pesquisar.
+     * Deve ser usado com um Cliente.showORedit() o envolvendo para mostrar os dados e liberar edição
+     *
+     * @param lista -> Lista de clientes para pesquisar
+     * @return Cliente pesquisado
+     */
     public static Cliente consultar(ArrayList <Cliente> lista ){
         Scanner sc = new Scanner(System.in);
 
@@ -58,6 +68,10 @@ public class Cliente {
         return null;
     }
 
+    /***
+     * Método da classe para editar e vizualizar dados de qualquer cliente
+     * @param c -> Objeto Cliente que deseja visualizar
+     */
     public static void showORedit (Cliente c){
         Scanner sc = new Scanner(System.in);
 
