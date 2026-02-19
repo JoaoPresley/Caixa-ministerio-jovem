@@ -66,29 +66,40 @@ public class Cliente {
         System.out.println("Numero: " + c.get_numero());
         System.out.println("------------------------------");
         System.out.println("1 - Aumentar divida");
-        System.out.println("2 - Diminuir divida");
+        System.out.println("2 - Debitar divida");
         System.out.println("3 - Alterar numero");
         System.out.println("4 - Voltar");
         System.out.println("Digite opção escolhida: ");
         int op = sc.nextInt();
         sc.nextLine();
 
-        switch (op){
-            case 1->{
+        switch (op) {
+            case 1 -> {
                 //Aumentar divida
+                System.out.print("Digite o aumento da divida: ");
+                double aumento = sc.nextDouble();
+                sc.nextLine();
+
+                c.add_divida(aumento);
             }
-            case 2->{
+            case 2 -> {
                 //Diminuir divida
+                System.out.print("Digite o debito da divida: ");
+                double debito = sc.nextDouble();
+                sc.nextLine();
+
+                c.sub_divida(debito);
             }
-            case 3->{
+            case 3 -> {
                 //Alterar numero
+                System.out.print("Novo numero: ");
+                c.set_numero(sc.nextLine());
             }
-            case 4->{
+            case 4 -> {
                 //voltar
                 return;
             }
         }
-
     }
     //Setters
     /***
