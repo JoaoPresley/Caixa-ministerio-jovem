@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.maven.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <TabPane tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Clientes">
+                <VBox spacing="10">
+                    <TextField fx:id="txtNomeCliente" promptText="Nome do Cliente" />
+                    <TextField fx:id="txtNumeroCliente" promptText="Número/Telefone" />
+                    <Button onAction="#onCadastrarCliente" text="Cadastrar Cliente" maxWidth="Infinity"/>
+                    <ListView fx:id="listClientes" prefHeight="200" />
+                </VBox>
+            </Tab>
+
+            <Tab text="Produtos">
+                <VBox spacing="10">
+                    <TextField fx:id="txtNomeProduto" promptText="Nome do Produto" />
+                    <TextField fx:id="txtPrecoProduto" promptText="Preço" />
+                    <TextField fx:id="txtQtdProduto" promptText="Quantidade" />
+                    <Button onAction="#onCadastrarProduto" text="Cadastrar Produto" maxWidth="Infinity"/>
+                    <ListView fx:id="listProdutos" prefHeight="200" />
+                </VBox>
+            </Tab>
+        </tabs>
+    </TabPane>
+</VBox>
