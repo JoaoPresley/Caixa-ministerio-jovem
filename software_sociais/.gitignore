@@ -1,0 +1,36 @@
+# --- BUILD E BINÁRIOS ---
+target/
+build/
+bin/
+out/
+
+# Banco de Dados SQLite (Essencial ignorar)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Maven Wrapper (Arquivos binários do Maven)
+.mvn/
+*.jar
+
+# --- INTELLIJ (Pasta inteira de configurações locais) ---
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# --- OUTRAS IDES (VS Code, Eclipse, NetBeans) ---
+.vscode/
+.settings/
+.classpath
+.project
+.factorypath
+.apt_generated
+/nbproject/private/
+/nbbuild/
+/dist/
+
+# --- SISTEMA ---
+.DS_Store
+Thumbs.db
