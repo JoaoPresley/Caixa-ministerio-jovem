@@ -2,7 +2,7 @@ package com.example.software_sociais.database;
 
 import com.example.software_sociais.objects.Venda;
 
-public class vendas_DAO implements DAO {
+public class vendas_DAO implements DAO <Venda> {
     //Inserir dados na tabela vendas
     @Override
     public void insert(Venda venda){
@@ -14,7 +14,7 @@ public class vendas_DAO implements DAO {
     }
 
     @Override
-    public void edit(Venda venda) {
+    public void update(Venda venda) {
 
     }
 }
