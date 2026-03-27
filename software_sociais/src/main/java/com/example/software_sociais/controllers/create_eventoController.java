@@ -30,7 +30,7 @@ public class create_eventoController {
         }
         if (txt_data.getText().isBlank() ||
         txt_nomeResponsavel.getText().isBlank()){
-            alerta("Campos sem preenchimento", "Campos de data ou responsável sem preencher. \n Registrado evento sem esses campos", Alert.AlertType.WARNING)
+            alerta("Campos sem preenchimento", "Campos de data ou responsável sem preencher. \n Registrado evento sem esses campos", Alert.AlertType.WARNING);
         }
         //Cria objeto para capturar dados
         Evento evento = new Evento();
