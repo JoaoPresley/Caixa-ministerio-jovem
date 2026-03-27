@@ -27,7 +27,8 @@ public class Connection_database {
         String tbEventos_sql = "CREATE TABLE IF NOT EXISTS Eventos(\n" +
                 "\tid INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                 "\tnome TEXT,\n" +
-                "\tdata TEXT DEFAULT (date('now'))\n" +
+                "\tdata TEXT DEFAULT (date('now')),\n" +
+                "\tresponsavel TEXT" +
                 ");";
 
         String tbVendas_sql = "CREATE TABLE IF NOT EXISTS Vendas(\n" +
