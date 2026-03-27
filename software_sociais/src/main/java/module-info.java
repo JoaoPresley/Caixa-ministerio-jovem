@@ -2,6 +2,7 @@ module com.example.software_sociais {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires javafx.graphics;
 
 
     opens com.example.software_sociais to javafx.fxml;

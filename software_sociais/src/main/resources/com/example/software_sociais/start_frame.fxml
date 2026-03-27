@@ -33,7 +33,7 @@
                                         <Font name="System Bold" size="14.0" />
                                     </font>
                                 </Button>
-                                <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" style="-fx-background-radius: 50; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 3; -fx-border-radius: 50;" text="CRIAR EVENTO">
+                                <Button mnemonicParsing="false" onAction="#clickCriarEvento" prefHeight="60.0" prefWidth="220.0" style="-fx-background-radius: 50; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 3; -fx-border-radius: 50;" text="CRIAR EVENTO">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>
@@ -64,12 +64,12 @@
                                 <Font name="System Bold" size="14.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="350.0" style="-fx-background-radius: 50; -fx-background-color: #f0f0f0; -fx-border-color: black; -fx-border-width: 3; -fx-border-radius: 50;" text="CRIAR EVENTO PARA INICIAR VENDAS">
+                        <Button mnemonicParsing="false" onAction="#clickCriarEvento" prefHeight="60.0" prefWidth="350.0" style="-fx-background-radius: 50; -fx-background-color: #f0f0f0; -fx-border-color: black; -fx-border-width: 3; -fx-border-radius: 50;" text="CRIAR EVENTO PARA INICIAR VENDAS">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#clicouVoltar" style="-fx-background-color: transparent;" text="← Voltar" underline="true" />
+                        <Button mnemonicParsing="false" onAction="#clicouVoltar" style="-fx-cursor: hand;" text="← Voltar" underline="true" />
                     </children>
                <StackPane.margin>
                   <Insets />
