@@ -27,8 +27,7 @@ public class start_frameController {
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         try {
             Scene scene = new Scene(fxmlLoader.load());
-            window.setScene(scene);
-            window.show();
+            Navegador.goToPage(window, scene);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
