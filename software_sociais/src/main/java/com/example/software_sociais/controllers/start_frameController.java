@@ -40,7 +40,7 @@ public class start_frameController {
         //A janela atual será usada
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         //Tela de consulta de eventos
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("com/example/software_sociais/view_eventos.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/software_sociais/view_eventos.fxml"));
         try {
             //Carrega fxml na tela
             Scene tela = new Scene(fxmlLoader.load());
