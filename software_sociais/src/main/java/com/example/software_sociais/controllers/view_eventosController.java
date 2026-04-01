@@ -1,6 +1,7 @@
 package com.example.software_sociais.controllers;
 
 import com.example.software_sociais.controllers.Utilities.Atualizar;
+import com.example.software_sociais.controllers.Utilities.Navegador;
 import com.example.software_sociais.database.eventos_DAO;
 import com.example.software_sociais.objects.Evento;
 import javafx.collections.FXCollections;
@@ -14,6 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -43,18 +45,11 @@ public class view_eventosController implements Initializable {
 
     @FXML
     void clickVoltar(ActionEvent event) {
-        //essa janela
-
+        try {
+            //Volta para ultima tela
+            Navegador.returnPage((Stage) ((Node) event.getSource()).getScene().getWindow());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
-
-    /*
-
-
-    private void atualizartabela(){
-        eventos_DAO dao = new eventos_DAO();
-        List<Evento> lista = dao.listar();
-        ObservableList <Evento> obsList = FXCollections.observableArrayList(lista);
-
-        tabelaEventos.setItems(obsList);
-    } */
 }
