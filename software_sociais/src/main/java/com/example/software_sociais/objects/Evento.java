@@ -4,7 +4,7 @@ public class Evento {
     private int id;
     private String nome;
     private String data;
-    private String Responsavel;
+    private String responsavel;
 
     public int getId() {
         return id;
@@ -31,10 +31,10 @@ public class Evento {
     }
 
     public void setResponsavel(String responsavel){
-        this.Responsavel = responsavel;
+        this.responsavel = responsavel;
     }
 
-    public String geteResponsavel(){
-        return this.Responsavel;
+    public String getResponsavel(){
+        return this.responsavel;
     }
 }

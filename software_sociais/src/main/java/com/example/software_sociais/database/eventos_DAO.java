@@ -13,7 +13,7 @@ public class eventos_DAO implements DAO <Evento>{
         try (Connection conn = Connection_database.conect() ){
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, evento.getNome());
-            ps.setString(2, evento.geteResponsavel());
+            ps.setString(2, evento.getResponsavel());
             ps.setString(3, evento.getData());
             ps.execute();
         }catch (Exception e){
