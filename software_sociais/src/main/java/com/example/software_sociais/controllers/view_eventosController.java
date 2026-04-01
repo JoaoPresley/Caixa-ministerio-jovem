@@ -33,14 +33,15 @@ public class view_eventosController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
+            //Inicializa as colunas das tabelas
             colData.setCellValueFactory(new PropertyValueFactory<>("data"));
             colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
             colResponsavel.setCellValueFactory(new PropertyValueFactory<>("responsavel"));
 
-            eventos_DAO DAO = new eventos_DAO();
-            List <Evento> lista = DAO.listar();
-            Atualizar <Evento> up = new Atualizar<>();
-            up.AtualizarTabela(tabelaEventos,lista);
+            //
+            eventos_DAO DAO = new eventos_DAO();//Manipulador de eventos do DB
+            List <Evento> lista = DAO.listar(); //Lista de eventos do DB
+            Atualizar.AtualizarTabela(tabelaEventos,lista);
     }
 
     @FXML
