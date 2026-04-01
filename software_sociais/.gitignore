@@ -34,3 +34,6 @@ out/
 # --- SISTEMA ---
 .DS_Store
 Thumbs.db
+
+#---- Teste rápidos das funcionalidades ---------
+*teste*
