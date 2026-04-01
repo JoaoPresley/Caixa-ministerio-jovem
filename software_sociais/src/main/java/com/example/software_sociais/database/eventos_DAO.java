@@ -9,10 +9,12 @@ import java.sql.SQLException;
 public class eventos_DAO implements DAO <Evento>{
     @Override
     public void insert(Evento evento) {
-        String sql = "INSERT INTO eventos(nome) VALUES (?)";
+        String sql = "INSERT INTO eventos(nome, responsavel, data) VALUES (?, ?, ?)";
         try (Connection conn = Connection_database.conect() ){
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, evento.getNome());
+            ps.setString(2, evento.geteResponsavel());
+            ps.setString(3, evento.getData());
             ps.execute();
         }catch (Exception e){
             e.printStackTrace();
