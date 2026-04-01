@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class create_eventoController {
 
@@ -37,20 +38,47 @@ public class create_eventoController {
         Evento evento = new Evento();
         //Objeto para registar evento no BD
         eventos_DAO eventosDao = new eventos_DAO();
-        if (txt_data.getText().isBlank() ||
-        txt_nomeResponsavel.getText().isBlank()){
+
+
+        //INSERINDO NOME DO EVENTO
+        evento.setNome(txt_nomeEvento.getText());
+        //INSERINDO DATA DO EVENTO
+        if (txt_data.getText().isBlank()){
             //Caso esteja com a data em branco
-            String hoje = LocalDate.now().toString();
-            alerta("Campos sem preenchimento", "Campos de data ou responsável sem preencher. \n Registrado evento sem responsavel, e com a data de hoje: " + hoje, Alert.AlertType.WARNING);
+            // Formata data para dd/MM/aaaa
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            String hoje = LocalDate.now().format(formatter);
+            //EXIBE O ALERTA
+            alerta("Campos sem preenchimento",
+                    "Campo de data sem preencher." +
+                            "\n Registrado evento com a data: " + hoje, Alert.AlertType.WARNING);
+            //set a data do evento
             evento.setData(hoje);
-            evento.setNome(txt_nomeEvento.getText());
-            evento.setResponsavel(null);
-        }else {
+        }else{
             //Caso tenha data do evento
+            evento.setData(txt_data.getText());
+        }
+        //INSIRINDO NOME DO RESPONSAVEL
+        if (txt_nomeResponsavel.getText().isBlank()){
+            //caso não tenha responsavel
+            alerta("Campos sem preenchimento",
+                    "Campo de responsavel sem preencher" +
+                            "\n Registrado Responsavel com nullo.",
+                    Alert.AlertType.WARNING);
+            evento.setResponsavel(null);
+        }else{
+            //caso tenha responsavel
+            evento.setResponsavel(txt_nomeResponsavel.getText());
         }
 
-        //Insere dados no BD
+        //Insere evento no BD
         eventosDao.insert(evento);
+
+        //Limpa todos os campos
+        txt_nomeResponsavel.clear();
+        txt_nomeEvento.clear();
+        txt_data.clear();
+
     }
 
     @FXML
