@@ -1,6 +1,7 @@
 package com.example.software_sociais.controllers;
 
 import com.example.software_sociais.controllers.Utilities.Alerta;
+import com.example.software_sociais.controllers.Utilities.Navegador;
 import com.example.software_sociais.database.eventos_DAO;
 import com.example.software_sociais.objects.Evento;
 import javafx.event.ActionEvent;
@@ -12,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -87,15 +89,25 @@ public class create_eventoController {
     @FXML
     void clickVoltar(ActionEvent event) {
         //Volta para Start
+        try {
+            //volta para a pagina anterior
+            Navegador.returnPage((Stage) ((Node)event.getSource()).getScene().getWindow());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        /*
+
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/software_sociais/start_frame.fxml"));
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         try {
             Scene scene = new Scene(fxmlLoader.load());
-            window.setScene(scene);
-            window.show();
+            Navegador.returnPage(window);
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
+
+         */
     }
 }
 

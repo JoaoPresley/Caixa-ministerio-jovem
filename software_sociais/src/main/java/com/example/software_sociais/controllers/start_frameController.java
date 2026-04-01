@@ -26,8 +26,8 @@ public class start_frameController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/software_sociais/create_evento.fxml"));
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         try {
-            Scene scene = new Scene(fxmlLoader.load());
-            Navegador.goToPage(window, scene);
+            //Vai para nova pagina
+            Navegador.goToPage(window, fxmlLoader.load());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -41,10 +41,8 @@ public class start_frameController {
         //Tela de consulta de eventos
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/software_sociais/view_eventos.fxml"));
         try {
-            //Carrega fxml na tela
-            Scene tela = new Scene(fxmlLoader.load());
             //mostra a tela
-            Navegador.goToPage(window, tela);
+            Navegador.goToPage(window, fxmlLoader.load());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

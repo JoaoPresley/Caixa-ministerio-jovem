@@ -14,24 +14,22 @@ public class Navegador {
     private static final Stack <Parent> pilha = new Stack<>();
 
     //Função para ir para o FXML desejado
-    public static void goToPage(Stage window, Scene pagina){
+    public static void goToPage(Stage window, Parent pagina){
         //Pega a pagina atual e manda na pilha
         pilha.push(window.getScene().getRoot());
-        //muda a scene
-        window.setScene(pagina);
+        //muda o conteudo da tela
+        window.getScene().setRoot(pagina);
         window.show();
     }
     //Função para voltar a página
     public static void returnPage(Stage window) throws IOException {
         if(pilha.isEmpty()){
             //Pilha vazia vai para a tela inicial
-            FXMLLoader fxmlLoader = new FXMLLoader(Navegador.class.getResource("com/example/software_sociais/start_frame.fxml"));
-            Scene c = new Scene(fxmlLoader.load());
-            window.setScene(c);
+            FXMLLoader fxmlLoader = new FXMLLoader(Navegador.class.getResource("/com/example/software_sociais/start_frame.fxml"));
+            window.getScene().setRoot(fxmlLoader.load());
         }else{
             //Pilha com valores, volta para a ultima tela
-            Scene c = new Scene(pilha.pop());
-            window.setScene(c);
+            window.getScene().setRoot(pilha.pop());
         }
         //mostra a tela com a cena anterior
         window.show();
