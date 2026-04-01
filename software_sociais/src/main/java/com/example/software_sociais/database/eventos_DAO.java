@@ -4,7 +4,10 @@ import com.example.software_sociais.objects.Evento;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class eventos_DAO implements DAO <Evento>{
     @Override
@@ -48,5 +51,34 @@ public class eventos_DAO implements DAO <Evento>{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public List<Evento> listar() {
+        List<Evento> lista = new ArrayList<>(); //lista de retorno
+        String sql = "SELECT id, nome, responsavel, data FROM Eventos";//query busca de dados
+        try (Connection conn = Connection_database.conect();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();){
+
+            //lê dado por dado do DB
+            while (rs.next()){
+                Evento evento = new Evento();//objeto que será adicionado na lista
+
+                //insere dados no objeto
+                evento.setNome(rs.getString("nome"));
+                evento.setData(rs.getString("data"));
+                evento.setId(rs.getInt("id"));
+                evento.setResponsavel(rs.getString("responsavel"));
+
+                //adiciona objeto na lista
+                lista.add(evento);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        return lista;
     }
 }
