@@ -1,5 +1,6 @@
 package com.example.software_sociais.controllers;
 
+import com.example.software_sociais.controllers.Utilities.Alerta;
 import com.example.software_sociais.database.eventos_DAO;
 import com.example.software_sociais.objects.Evento;
 import javafx.event.ActionEvent;
@@ -13,6 +14,8 @@ import javafx.stage.Stage;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
+import static com.example.software_sociais.controllers.Utilities.Alerta.alerta;
 
 public class create_eventoController {
 
@@ -93,14 +96,6 @@ public class create_eventoController {
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
-    }
-
-    private static void alerta(String titulo, String texto, Alert.AlertType tipo) {
-        Alert alert = new Alert(tipo);
-        alert.setTitle(titulo);
-        alert.setHeaderText(null);
-        alert.setContentText(texto);
-        alert.showAndWait();
     }
 }
 
