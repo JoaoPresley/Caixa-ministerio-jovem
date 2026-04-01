@@ -1,5 +1,6 @@
 package com.example.software_sociais.controllers;
 
+import com.example.software_sociais.database.eventos_DAO;
 import com.example.software_sociais.objects.Evento;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.time.LocalDate;
 
 public class create_eventoController {
 
@@ -28,15 +31,26 @@ public class create_eventoController {
             alerta("Campos sem preenchimento", "Digite um nome para o evento", Alert.AlertType.ERROR);
             return;
         }
+        //---------Campos estão validos para preencher--------
+        //VARIAVEIS LOCAIS
+        //Objeto para capturar dados
+        Evento evento = new Evento();
+        //Objeto para registar evento no BD
+        eventos_DAO eventosDao = new eventos_DAO();
         if (txt_data.getText().isBlank() ||
         txt_nomeResponsavel.getText().isBlank()){
-            alerta("Campos sem preenchimento", "Campos de data ou responsável sem preencher. \n Registrado evento sem responsavel, e com a data de hoje", Alert.AlertType.WARNING);
+            //Caso esteja com a data em branco
+            String hoje = LocalDate.now().toString();
+            alerta("Campos sem preenchimento", "Campos de data ou responsável sem preencher. \n Registrado evento sem responsavel, e com a data de hoje: " + hoje, Alert.AlertType.WARNING);
+            evento.setData(hoje);
+            evento.setNome(txt_nomeEvento.getText());
+            evento.setResponsavel(null);
+        }else {
+            //Caso tenha data do evento
         }
-        //Cria objeto para capturar dados
-        Evento evento = new Evento();
-        evento.setData(txt_data.getText());
 
-
+        //Insere dados no BD
+        eventosDao.insert(evento);
     }
 
     @FXML
