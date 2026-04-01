@@ -6,8 +6,8 @@ import javafx.scene.control.TableView;
 
 import java.util.List;
 
-public class Atualizar <T>{
-    public void AtualizarTabela(TableView<T> tabela, List<T> lista){
+public class Atualizar {
+    public static <T> void AtualizarTabela(TableView<T> tabela, List<T> lista){
         ObservableList<T> obslista = FXCollections.observableArrayList(lista);
         tabela.setItems(obslista);
     }
