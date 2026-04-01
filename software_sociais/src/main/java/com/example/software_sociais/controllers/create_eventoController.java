@@ -95,19 +95,6 @@ public class create_eventoController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        /*
-
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/software_sociais/start_frame.fxml"));
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        try {
-            Scene scene = new Scene(fxmlLoader.load());
-            Navegador.returnPage(window);
-        } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
-        }
-
-         */
     }
 }
 
