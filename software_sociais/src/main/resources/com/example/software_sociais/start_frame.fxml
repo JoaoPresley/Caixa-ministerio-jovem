@@ -47,7 +47,7 @@
                                         <Font name="System Bold" size="14.0" />
                                     </font>
                                 </Button>
-                                <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" style="-fx-background-radius: 50; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 3; -fx-border-radius: 50;" text="CONSULTAR EVENTOS">
+                                <Button mnemonicParsing="false" onAction="#clickConsultarEventos" prefHeight="60.0" prefWidth="220.0" style="-fx-background-radius: 50; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 3; -fx-border-radius: 50;" text="CONSULTAR EVENTOS">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>

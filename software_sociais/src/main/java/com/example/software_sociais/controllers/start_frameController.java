@@ -34,6 +34,11 @@ public class start_frameController {
     }
 
     @FXML
+    void clickConsultarEventos(ActionEvent event) {
+
+    }
+
+    @FXML
     void clicouIniciarVendas(ActionEvent event) {
         // Esconde o principal
         vboxMenuPrincipal.setVisible(false);
