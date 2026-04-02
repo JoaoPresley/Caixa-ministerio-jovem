@@ -35,7 +35,7 @@ public class Connection_database {
                 "\tid INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                 "\tid_evento INTEGER,\n" +
                 "\tproduto TEXT,\n" +
-                "\tpreco NUMERIC NOT NULL,\n" +
+                "\tvalor NUMERIC NOT NULL,\n" +
                 "\t--Criação da chave estrangeira\n" +
                 "\tFOREIGN KEY (id_evento) REFERENCES Eventos(id) ON DELETE CASCADE\n" +
                 ");";
