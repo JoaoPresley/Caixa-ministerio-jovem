@@ -6,6 +6,7 @@ import com.example.software_sociais.database.eventos_DAO;
 import com.example.software_sociais.objects.Evento;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -63,6 +64,17 @@ public class view_eventosController implements Initializable {
                 menu.hide();
                 if(event.getClickCount() > 1){
                     //Abre vendas do evento
+                    Evento selected = tabelaEventos.getSelectionModel().getSelectedItem();
+                    //pega a variavel do evento -> será o evento trabalhado e apresentado
+                    Navegador.evento = selected;
+                    //Pagina de vendas
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/software_sociais/init_vendas.fxml"));
+                    try {
+                        //Essa janela virara a proxima
+                        Navegador.goToPage((Stage) ((Node) (event.getSource())).getScene().getWindow(),fxmlLoader.load());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
 

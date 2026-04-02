@@ -1,5 +1,6 @@
 package com.example.software_sociais.controllers;
 
+import com.example.software_sociais.objects.Venda;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -7,19 +8,19 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class init_vendasController {
+public class init_vendasController  {
 
     @FXML
-    private TableColumn<?, ?> colProduto;
+    private TableColumn<Venda, String> colProduto;
 
     @FXML
-    private TableColumn<?, ?> colValor;
+    private TableColumn<Venda, Double> colValor;
 
     @FXML
     private Label lbl_titulo;
 
     @FXML
-    private TableView<?> tabelaVendas;
+    private TableView<Venda> tabelaVendas;
 
     @FXML
     private TextField txt_vendaProduto;
