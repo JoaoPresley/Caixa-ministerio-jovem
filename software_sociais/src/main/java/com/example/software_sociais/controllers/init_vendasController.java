@@ -69,7 +69,7 @@ public class init_vendasController implements Initializable {
         //  Registra o nome do produto
         venda.setProduto(txt_vendaProduto.getText());
         //  Registra o valor da venda
-        venda.setValor(Double.parseDouble(txt_vendaProduto.getText()));
+        venda.setValor(Double.parseDouble(txt_vendaValor.getText()));
 
         //Insere a venda no BD
         vendas_DAO DAO = new vendas_DAO();
