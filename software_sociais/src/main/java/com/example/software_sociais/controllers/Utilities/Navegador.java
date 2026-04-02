@@ -12,6 +12,8 @@ import java.util.Stack;
 public class Navegador {
     //Pilha das ultimas páginas
     private static final Stack <Parent> pilha = new Stack<>();
+    //Varivel do evento
+    public static int id_evento;
 
     //Função para ir para o FXML desejado
     public static void goToPage(Stage window, Parent pagina){
