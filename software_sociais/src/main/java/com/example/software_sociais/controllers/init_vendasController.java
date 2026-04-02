@@ -1,15 +1,15 @@
 package com.example.software_sociais.controllers;
 
+import com.example.software_sociais.controllers.Utilities.Alerta;
 import com.example.software_sociais.controllers.Utilities.Navegador;
+import com.example.software_sociais.database.vendas_DAO;
+import com.example.software_sociais.objects.Evento;
 import com.example.software_sociais.objects.Venda;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -51,7 +51,29 @@ public class init_vendasController implements Initializable {
 
     @FXML
     void clickRealizarVenda(ActionEvent event) {
+        Venda venda = new Venda();
+        //Se o valor da venda ou o nome do produto não estiver preenchido não realiza a venda
+        if (txt_vendaProduto.getText().isBlank() || txt_vendaValor.getText().isBlank()){
+            Alerta.alerta("Campos não preenchidos",
+                    "Preencha todos os campos para realizar a venda",
+                    Alert.AlertType.ERROR);
+            return;
+        }
+        //Se estiver tudo OK cadastra a venda
+        //  Registra o ID do evento
+        if(Navegador.evento == null){
+            System.err.println("Evento está nulo!!!");
+        }else {
+            venda.setId_evento(Navegador.evento.getId());
+        }
+        //  Registra o nome do produto
+        venda.setProduto(txt_vendaProduto.getText());
+        //  Registra o valor da venda
+        venda.setValor(Double.parseDouble(txt_vendaProduto.getText()));
 
+        //Insere a venda no BD
+        vendas_DAO DAO = new vendas_DAO();
+        DAO.insert(venda);
     }
 
     @FXML
