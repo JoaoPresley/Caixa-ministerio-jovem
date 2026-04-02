@@ -1,14 +1,20 @@
 package com.example.software_sociais.controllers;
 
+import com.example.software_sociais.controllers.Utilities.Navegador;
 import com.example.software_sociais.objects.Venda;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class init_vendasController  {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class init_vendasController implements Initializable {
 
     @FXML
     private TableColumn<Venda, String> colProduto;
@@ -28,6 +34,18 @@ public class init_vendasController  {
     @FXML
     private TextField txt_vendaValor;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        //Coloca nome do evento no titulo
+        lbl_titulo.setText("Evento - " + Navegador.evento.getNome());
+
+        //Inicializa as colunas
+        colProduto.setCellValueFactory(new PropertyValueFactory<>("produto"));
+        colValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
+
+        //atualiza as colunas
+    }
+
     @FXML
     void clickRealizarVenda(ActionEvent event) {
 
@@ -37,5 +55,4 @@ public class init_vendasController  {
     void clickVoltar(ActionEvent event) {
 
     }
-
 }
