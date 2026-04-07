@@ -12,7 +12,7 @@ public class Connection_database {
                 String url = "jdbc:sqlite:database.db";
                 conection = DriverManager.getConnection(url);
                 //Ativa as chaves estrangeiras
-                conection.createStatement().execute("PRAGMA foreignkey = ON");
+                conection.createStatement().execute("PRAGMA foreign_keys = ON");
 
                 //Cria tabelas
                 createTables();
