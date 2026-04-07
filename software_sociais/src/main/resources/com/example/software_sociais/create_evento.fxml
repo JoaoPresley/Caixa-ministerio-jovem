@@ -52,8 +52,8 @@
                               <Font size="14.0" />
                           </font>
                       </Label>
-                      <TextField fx:id="txt_nomeEvento" prefHeight="25.0" prefWidth="376.0" promptText="Digite o nome do evento" GridPane.columnIndex="1" />
-                      <TextField fx:id="txt_nomeResponsavel" promptText="Resposável pelo evento (Campo obrigatório)" style="-fx-font-style: red;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                      <TextField fx:id="txt_nomeEvento" prefHeight="25.0" prefWidth="376.0" promptText="Digite o nome do evento (Campo obrigatório)" GridPane.columnIndex="1" />
+                      <TextField fx:id="txt_nomeResponsavel" promptText="Resposável pelo evento" style="-fx-font-style: red;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                       <TextField fx:id="txt_data" promptText="dd/mm/aaaa" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   </children>
                   <padding>
