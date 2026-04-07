@@ -50,7 +50,7 @@
 
             //atualiza as colunas
             vendas_DAO DAO = new vendas_DAO();
-            Atualizar.AtualizarTabela(tabelaVendas, DAO.listar());
+            Atualizar.AtualizarTabela(tabelaVendas, DAO.listar_toEvento(Navegador.evento.getId()));
         }
 
         @FXML
