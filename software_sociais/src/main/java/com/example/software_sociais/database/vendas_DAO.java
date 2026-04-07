@@ -60,4 +60,29 @@ public class vendas_DAO implements DAO <Venda> {
         }
         return lista;
     }
+
+    public List<Venda> listar_toEvento(int id_evento) {
+        List <Venda> lista = new ArrayList<>();
+        String sql = "SELECT * FROM Vendas WHERE id_evento = ?";
+        try (Connection conn = Connection_database.conect();
+             PreparedStatement ps = conn.prepareStatement(sql)){
+            ps.setInt(1, id_evento);
+            ResultSet rs = ps.executeQuery();
+
+            //Envia os dado para a lista
+            while (rs.next()){
+                Venda v = new Venda();
+                v.setValor(rs.getDouble("valor"));
+                v.setProduto(rs.getString("produto"));
+                v.setId_evento(rs.getInt("id_evento"));
+                v.setId(rs.getInt("id"));
+
+                lista.add(v);
+            }
+        } catch (Exception e) {
+            System.err.println("Erro ao listar eventos");
+            throw new RuntimeException(e);
+        }
+        return lista;
+    }
 }
