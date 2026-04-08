@@ -83,7 +83,7 @@
             DAO.insert(venda);
 
             //Atualiza tabela
-            Atualizar.AtualizarTabela(tabelaVendas, DAO.listar());
+            Atualizar.AtualizarTabela(tabelaVendas, DAO.listar_toEvento(Navegador.evento.getId()));
         }
 
         @FXML
