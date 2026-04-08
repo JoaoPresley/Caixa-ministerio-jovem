@@ -59,7 +59,7 @@
 
                 <VBox fx:id="vboxMenuVendas" alignment="CENTER" managed="false" spacing="30.0" visible="false" StackPane.alignment="CENTER">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="350.0" style="-fx-background-radius: 50; -fx-background-color: #f0f0f0; -fx-border-color: black; -fx-border-width: 3; -fx-border-radius: 50;" text="INICIAR VENDAS SEM EVENTO">
+                        <Button mnemonicParsing="false" onAction="#clickIniciarVendasSemEvento" prefHeight="60.0" prefWidth="350.0" style="-fx-background-radius: 50; -fx-background-color: #f0f0f0; -fx-border-color: black; -fx-border-width: 3; -fx-border-radius: 50;" text="INICIAR VENDAS SEM EVENTO">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>
