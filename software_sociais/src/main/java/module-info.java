@@ -12,4 +12,6 @@ module com.example.software_sociais {
 
     opens com.example.software_sociais.objects to javafx.fxml, javafx.base;
     exports com.example.software_sociais.objects;
+    exports com.example.software_sociais.objects.DTO;
+    opens com.example.software_sociais.objects.DTO to javafx.base, javafx.fxml;
 }
