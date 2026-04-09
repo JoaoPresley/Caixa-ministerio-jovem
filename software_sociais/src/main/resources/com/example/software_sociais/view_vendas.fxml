@@ -20,7 +20,7 @@
          </VBox.margin>
       </Label>
       <Separator prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: black; -fx-border-width: 1;" />
-      <Label fx:id="tituloVenda" text="Vendas - " textFill="#434343">
+      <Label fx:id="tituloVenda" text="Vendas" textFill="#434343">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -39,7 +39,7 @@
             </TableView>
          </children>
       </VBox>
-      <Button mnemonicParsing="false" onAction="#clickIniciar_vendas" prefHeight="60.0" prefWidth="220.0" style="-fx-background-radius: 50; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 3; -fx-border-radius: 50;" text="Iniciar vendas do evento!!!">
+      <Button mnemonicParsing="false" onAction="#clickVerEventos" prefHeight="60.0" prefWidth="220.0" style="-fx-background-radius: 50; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 3; -fx-border-radius: 50;" text="Buscar vendas por evento">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

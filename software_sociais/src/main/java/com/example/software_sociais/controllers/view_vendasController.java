@@ -34,7 +34,7 @@ public class view_vendasController implements Initializable {
     }
 
     @FXML
-    void clickIniciar_vendas(ActionEvent event) {
+    void clickVerEventos(ActionEvent event) {
 
     }
 

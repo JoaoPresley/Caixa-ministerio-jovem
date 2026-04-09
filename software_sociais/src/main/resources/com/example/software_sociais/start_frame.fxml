@@ -42,7 +42,7 @@
                         </HBox>
                         <HBox alignment="CENTER" spacing="40.0">
                             <children>
-                                <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="220.0" style="-fx-background-radius: 50; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 3; -fx-border-radius: 50;" text="CONSULTAR VENDAS">
+                                <Button mnemonicParsing="false" onAction="#clickConsultarVendas" prefHeight="60.0" prefWidth="220.0" style="-fx-background-radius: 50; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 3; -fx-border-radius: 50;" text="CONSULTAR VENDAS">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>

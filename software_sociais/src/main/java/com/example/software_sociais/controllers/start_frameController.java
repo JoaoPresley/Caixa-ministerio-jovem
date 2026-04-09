@@ -102,4 +102,17 @@ public class start_frameController {
         }
 
     }
+
+    @FXML
+    void clickConsultarVendas(ActionEvent event) {
+        //Na pagina inicial não foi selecionado evento algum logo:
+        Navegador.evento = null;
+        //Navega para a pagina de vendas
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/software_sociais/view_vendas.fxml"));
+        try {
+            Navegador.goToPage((Stage) ((Node) event.getSource()).getScene().getWindow(), fxmlLoader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
