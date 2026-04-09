@@ -84,6 +84,23 @@ public class create_eventoController {
         txt_nomeEvento.clear();
         txt_data.clear();
 
+        //Pergunta se quer começar vendas do evento selecionado
+        boolean op = Alerta.sim_nao("INICIAR EVENTO?",
+                "Quer iniciar o evento criado?\n" +
+                        "(Essa opção te levará pra a pagina de vendas)");
+        //se quiser ir para a pagina de vendas
+        if (op){
+            //Coloca o evento no navegador
+            Navegador.evento = evento;
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/software_sociais/init_vendas.fxml"));
+            //navega para a pagina
+            try {
+                Navegador.goToPage((Stage) ((Node) event.getSource()).getScene().getWindow(), fxmlLoader.load());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
     }
 
     @FXML
