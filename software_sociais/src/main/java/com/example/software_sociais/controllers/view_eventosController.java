@@ -46,13 +46,31 @@ public class view_eventosController implements Initializable {
         //Menu do botão direito
         ContextMenu menu = new ContextMenu();
         MenuItem delete = new MenuItem("deletar evento");
+        MenuItem visualizar_vendas = new MenuItem("visualizar vendas do evento");
         menu.getItems().add(delete); //Adiciona item de delete no menu
+        menu.getItems().add(visualizar_vendas); //Adiciona item que vai para o vizualizar vendas
         //  clicando no item de deletar
         delete.setOnAction(event -> {
             Evento selected =  tabelaEventos.getSelectionModel().getSelectedItem();
             if(selected != null){
                 DAO.del(selected);
                 Atualizar.AtualizarTabela(tabelaEventos, DAO.listar());
+            }
+        });
+        // clicando no item de vizualizar vendas
+        visualizar_vendas.setOnAction(event -> {
+            Evento select = tabelaEventos.getSelectionModel().getSelectedItem();
+            if (select != null){
+                //Coloca o selecionado na memoria
+                Navegador.evento = select;
+                //navega para a pagina de view vendas
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/software_sociais/view_vendas.fxml"));
+                try{
+                    Navegador.goToPage((Stage) tabelaEventos.getScene().getWindow(), fxmlLoader.load());
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
             }
         });
 

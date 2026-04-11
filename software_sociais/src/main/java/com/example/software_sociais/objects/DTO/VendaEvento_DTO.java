@@ -13,14 +13,14 @@ public class VendaEvento_DTO {
     }
 
     //Getters-> Envento, por enquanto apenas data
-    public String getDataEvento(){
+    public String getData(){
         return evento.getData();
     }
     //       -> Venda, Produto e valor, por enquanto
-    public String getProdutoVenda(){
+    public String getProduto(){
         return venda.getProduto();
     }
-    public double getValorVenda(){
+    public double getValor(){
         return venda.getValor();
     }
 }

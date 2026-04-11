@@ -7,7 +7,7 @@ public class Evento {
     private String responsavel;
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {

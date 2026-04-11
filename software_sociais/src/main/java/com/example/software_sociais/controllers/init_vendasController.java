@@ -42,7 +42,12 @@
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
             //Coloca nome do evento no titulo
-            lbl_titulo.setText("Evento - " + Navegador.evento.getNome());
+            if(Navegador.evento.getNome() == "evento sem nome"){
+                lbl_titulo.setText("Evento - " + Navegador.evento.getNome() + " - ID evento: " + Navegador.evento.getId());
+            }else{
+                lbl_titulo.setText("Evento - " + Navegador.evento.getNome());
+            }
+
 
             //Inicializa as colunas
             colProduto.setCellValueFactory(new PropertyValueFactory<>("produto"));
@@ -72,6 +77,8 @@
                 System.err.println("Evento está nulo!!!");
             }else {
                 venda.setId_evento(Navegador.evento.getId());
+                System.out.println("-----------\n\n Id_evento: " + Navegador.evento.getId()
+                + "\n\n ---------------");
             }
             //  Registra o nome do produto
             venda.setProduto(txt_vendaProduto.getText());

@@ -2,6 +2,7 @@ package com.example.software_sociais.controllers;
 
 import com.example.software_sociais.controllers.Utilities.Alerta;
 import com.example.software_sociais.controllers.Utilities.Navegador;
+import com.example.software_sociais.database.DAO;
 import com.example.software_sociais.database.eventos_DAO;
 import com.example.software_sociais.objects.Evento;
 import javafx.event.ActionEvent;
@@ -91,7 +92,7 @@ public class create_eventoController {
         //se quiser ir para a pagina de vendas
         if (op){
             //Coloca o evento no navegador
-            Navegador.evento = evento;
+            Navegador.evento = eventosDao.listar().getLast();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/software_sociais/init_vendas.fxml"));
             //navega para a pagina
             try {

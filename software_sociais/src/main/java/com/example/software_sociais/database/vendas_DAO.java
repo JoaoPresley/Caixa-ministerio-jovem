@@ -26,6 +26,7 @@ public class vendas_DAO implements DAO <Venda> {
 
             ps.executeUpdate();
         } catch (SQLException e) {
+            System.err.println("Erro ao inserir venda!!!!");
             throw new RuntimeException(e);
         }
     }
@@ -130,6 +131,52 @@ public class vendas_DAO implements DAO <Venda> {
         }catch (Exception e){
             e.printStackTrace();
         }
+        return lista;
+    }
+
+    public List<VendaEvento_DTO> listarVendasEvento_toEvento(int id_evento){
+        List<VendaEvento_DTO> lista = new ArrayList<>();
+
+        //Query SQL
+        String sql = "SELECT v.id AS id_venda,\n" +
+                "\t\tv.id_evento AS id_evento,\n" +
+                "\t\tv.produto AS produto,\n" +
+                "\t\tv.valor AS valor,\n" +
+                "\t\te.data AS data,\n" +
+                "\t\te.nome AS nome,\n" +
+                "\t\te.responsavel AS responsavel\n" +
+                "FROM Vendas v \n" +
+                "LEFT JOIN Eventos e\n" +
+                "ON v.id_evento = e.id \n" +
+                "WHERE id_evento = ?";
+        try(Connection conn = Connection_database.conect();
+        PreparedStatement ps = conn.prepareStatement(sql)){
+            //Procura as vendas do com o id_evento
+            ps.setInt(1, id_evento);
+            ResultSet rs = ps.executeQuery();
+            //Preenche a lista com os dados do BD
+            while (rs.next()){
+                //Preenche dados do evento
+                Evento e = new Evento();
+                e.setResponsavel(rs.getString("responsavel"));
+                e.setData(rs.getString("data"));
+                e.setId(rs.getInt("id_evento"));
+                e.setNome("nome");
+                //Preenche dados da venda
+                Venda v = new Venda();
+                v.setValor(rs.getDouble("valor"));
+                v.setId_evento(rs.getInt("id_evento"));
+                v.setId(rs.getInt("id_venda"));
+                v.setProduto(rs.getString("produto"));
+
+                //Coloca a venda e o evento no objeto DTO
+                VendaEvento_DTO DTO = new VendaEvento_DTO(e, v);
+                lista.add(DTO); //isere DTO na lista de retorno
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         return lista;
     }
 }

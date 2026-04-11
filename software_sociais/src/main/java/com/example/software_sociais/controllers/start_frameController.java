@@ -85,7 +85,7 @@ public class start_frameController {
         String hoje = LocalDate.now().format(formatter);
         evento.setData(hoje);
         //Nome do evento é "Evento sem nome: data do evento"
-        evento.setNome("evento sem nome do dia: " + hoje);
+        evento.setNome("evento sem nome");
 
         //Coloca evento no banco
         eventos_DAO DAO = new eventos_DAO();
